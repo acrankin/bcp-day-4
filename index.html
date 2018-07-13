@@ -8,6 +8,15 @@
         label {
             cursor: pointer;
         }
+        button {
+            background: lightsteelblue;
+        }
+        .big-number {
+            background: steelblue;
+            color: white;
+            font-family: fantasy;
+        }
+
     </style>
 </head>
 <body>
@@ -29,19 +38,19 @@
                     <input name="power" type="radio" value="3"> Cube
                 </label>
                 <label>
-                    <input name="power" type="radio" value="4"> Tesseractic
+                    <input name="power" type="radio" value="4"> Tesseract
                 </label>
             </p>
     
             <p>
-                <button onclick="showName()">click me</button>
+                <button onclick="calc()">click me</button>
             </p>
     
-            <p id="result">test me</p>
+            <p id="result">Enter a number and a power!</p>
         </main>
     
         <script>
-            function showName() {
+            function calc() {
                 var input = document.getElementById('number');
                 var number = input.value;
                 if(isNaN(number)) {
@@ -51,8 +60,7 @@
                     var radio = document.querySelector('input[name=power]:checked');
                     // console.log(radio.value);
                     var p = document.getElementById('result');
-                    p.innerHTML =  number + ' to the ' + radio.value + ' power is ' + number ** radio.value;
-                    var background;
+                    p.innerHTML =  number + ' to the ' + radio.value + ' power is <em>' + number ** radio.value + '</em>';
                     if(number > 25) {
                         p.classList.add('big-number');
                     }
@@ -61,11 +69,7 @@
                     }   
                 }
             }
-            function count() {
-                for(var i = 0; i < 10; i++) {
-                    console.log(i + 1);
-                }
-            }    
+            
 
         </script>
 
