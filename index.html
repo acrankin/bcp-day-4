@@ -21,6 +21,7 @@
             <button onclick = "showName()"> Click me</button>
         </p>
         
+        <p id = "result"></p>
     </main>
     <script>
         
@@ -33,9 +34,22 @@
         function showName(){
             var input = document.getElementById('name');
             var name = input.value;
-            console.log(name);
+           
+           var p = document.getElementById('result');
+           p.innerText = 'Your name is ' + name;
+           
+           var background;
+           if(name === 'al'){
+                background = 'steelblue';
+            }
+            else{
+                p.style.backgroundColor = '';
+            }
+
+            p.style.backgroundColor = background;
+
         }
-        
+
     </script>
 
 </body>
