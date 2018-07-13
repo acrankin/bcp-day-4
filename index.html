@@ -4,53 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APP TIME!</title>
+    <style>
+        label {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Just an App</h1> 
-    
     <main>
-        <p>
-            <label>
-                Name:
-                <input id = "name"> 
-            </label>
 
-        </p>
-        
-        <p>
-            <button onclick = "showName()"> Click me</button>
-        </p>
-        
-        <p id = "result"></p>
-    </main>
-    <script>
-        
-        
-        function count() {
-            for(var i = 0; i < 10; i++){
-                console.log(i + 1);
+            <p>
+                <label>
+                    Number:
+                    <input type="number" id="number">
+                </label>
+            </p>
+    
+            <p>
+                <label>
+                    <input name="power" type="radio" value="2"> Square
+                </label>
+                <label>
+                    <input name="power" type="radio" value="3"> Cube
+                </label>
+                <label>
+                    <input name="power" type="radio" value="4"> Tesseractic
+                </label>
+            </p>
+    
+            <p>
+                <button onclick="showName()">click me</button>
+            </p>
+    
+            <p id="result">test me</p>
+        </main>
+    
+        <script>
+            function showName() {
+                var input = document.getElementById('number');
+                var number = input.value;
+                if(isNaN(number)) {
+                    alert('please input a number!');
+                }
+                else {
+                    var radio = document.querySelector('input[name=power]:checked');
+                    // console.log(radio.value);
+                    var p = document.getElementById('result');
+                    p.innerHTML =  number + ' to the ' + radio.value + ' power is ' + number ** radio.value;
+                    var background;
+                    if(number > 25) {
+                        p.classList.add('big-number');
+                    }
+                    else {
+                        p.classList.remove('big-number');
+                    }   
+                }
             }
-        }
-        function showName(){
-            var input = document.getElementById('name');
-            var name = input.value;
-           
-           var p = document.getElementById('result');
-           p.innerText = 'Your name is ' + name;
-           
-           var background;
-           if(name === 'al'){
-                background = 'steelblue';
-            }
-            else{
-                p.style.backgroundColor = '';
-            }
+            function count() {
+                for(var i = 0; i < 10; i++) {
+                    console.log(i + 1);
+                }
+            }    
 
-            p.style.backgroundColor = background;
-
-        }
-
-    </script>
+        </script>
 
 </body>
 </html>
